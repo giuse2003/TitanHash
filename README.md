@@ -1,18 +1,18 @@
 # ⚡ TitanHash
 
-**TitanHash** è uno strumento di calcolo hash ad altissime prestazioni scritto in Python, progettato per sfruttare al 100% l'architettura Multi-Core dei moderni processori ed eliminare i colli di bottiglia solitamente causati dall'I/O del disco.
+**TitanHash** is an ultra-high-performance hashing engine written in Python, engineered to fully leverage the Multi-Core architecture of modern processors and eliminate traditional disk I/O bottlenecks.
 
-## 🚀 Caratteristiche
-- **Architettura Multi-Core Asincrona:** Sfrutta il Multi-Threading e pattern Producer-Consumer per parallelizzare i calcoli crittografici.
-- **Zero Colli di Bottiglia:** Il disco rigido legge i file enormi alla sua massima velocità di targa (in chunk ottimali da 8MB) senza mai doversi fermare ad attendere la fine dei calcoli della CPU.
-- **3 Hash in 1 (Senza rallentamenti):** Calcola contemporaneamente **MD5, SHA-1 e SHA-256**. Essendo eseguiti in parallelo su core diversi, l'aggiunta di algoritmi complessi non impatta sul tempo di lettura del disco.
-- **Supporto Drag-and-Drop (Windows):** Trascina direttamente file da decine o centinaia di Gigabyte sull'icona dello script per avviare il calcolo immediato.
-- **Interfaccia Intelligente:** Barra di progresso super-ottimizzata che si aggiorna in real-time senza inondare la console di stampa, preservando le performance.
+## 🚀 Features
+- **Asynchronous Multi-Core Architecture:** Utilizes Multi-Threading and a Producer-Consumer queue pattern to parallelize cryptographic calculations.
+- **Zero Disk Bottlenecks:** Your hard drive or SSD reads massive files at its maximum rated speed (using optimal 8MB chunks) without ever pausing to wait for CPU calculations.
+- **3-in-1 Hashing (No Slowdowns):** Computes **MD5, SHA-1, and SHA-256** simultaneously. Because they run in parallel on separate CPU cores, adding multiple complex algorithms has zero impact on disk read times.
+- **Drag-and-Drop Support (Windows):** Simply drag and drop any massive file (tens or hundreds of gigabytes) directly onto the script icon to begin hashing instantly.
+- **Smart UI:** Features a highly optimized, non-blocking progress bar that updates in real-time without flooding the console, preserving top-tier performance.
 
-## ⚙️ Come si usa
-1. Scarica o clona il progetto.
-2. Trascina un qualsiasi file di grandi dimensioni sopra l'icona di `TitanHash.py`.
-3. In alternativa, puoi lanciare lo script dal terminale o aprirlo con un doppio clic per incollare manualmente il percorso del file.
+## ⚙️ How to Use
+1. Download or clone this repository.
+2. Drag and drop any large file over the `TitanHash.py` icon.
+3. Alternatively, launch the script from your terminal or double-click it to manually paste the file path.
 
-## 🛠️ Dettagli Tecnici
-Implementato interamente in **Python**, il sistema aggira i limiti del Global Interpreter Lock (GIL) delegando le chiamate `hashlib.update` a thread separati. Il consumo di RAM è limitato rigidamente a 32MB massimi, impedendo saturation della memoria se il disco rigido dovesse superare la velocità di calcolo della CPU.
+## 🛠️ Technical Details
+Implemented entirely in **Python**, the system bypasses the limitations of the Global Interpreter Lock (GIL) by offloading `hashlib.update` calls to dedicated background threads. RAM usage is strictly capped at a 32MB buffer, preventing memory saturation even if your SSD read speed outpaces your CPU computation speed.
